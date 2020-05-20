@@ -31,7 +31,7 @@ client.on('message', msg => {
     var takenHours = String(taken.getHours()).padStart(2, "0");
     var takenMinutes = String(taken.getMinutes()).padStart(2, "0");
     var nextHours = String(next.getHours()).padStart(2, "0");
-    var nextMinutes = String(next.Minutes()).padStart(2, "0");
+    var nextMinutes = String(next.getMinutes()).padStart(2, "0");
     
     var output = `TAKEN: ${ takenHours }:${ takenMinutes }\nNEXT: ${ nextHours }:${ nextMinutes }`;
     
