@@ -1,5 +1,6 @@
 process.env.TZ = 'Europe/Stockholm' 
 const Discord = require('discord.js')
+const dayjs = require('dayjs')
 const client = new Discord.Client()
  
 client.on('ready', () => {
