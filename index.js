@@ -11,8 +11,12 @@ client.on('ready', () => {
 })
  
 client.on('message', msg => {
+  console.log(`msg.content:`)
+  console.log(msg.content)
   if (msg.content.includes('!lotus')) {
     const command = msg.content.toLowerCase().replace('!lotus', '').split(' ')[0]
+    console.log(`command:`)
+    console.log(command)
     const regex = new RegExp('^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$')
  
     if (regex.test(command)) {
@@ -26,8 +30,8 @@ client.on('message', msg => {
       msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}`)
     }
 
-    if (timestamp) {
-      msg.channel.send(`timestamp: ${command}`)
+    if (timestamp = true) {
+      msg.channel.send(`Timestamp: ${command}`)
     }
   }
 })
