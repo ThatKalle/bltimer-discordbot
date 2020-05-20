@@ -33,7 +33,7 @@ client.on('message', msg => {
     
       msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}`)
     } else if (typeof command === 'string') {
-      msg.reply(`Invalid input`)
+      msg.react('\:negative_squared_cross_mark:');
     }
   }
 })
