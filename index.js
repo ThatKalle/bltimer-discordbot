@@ -2,6 +2,8 @@ const Discord = require('discord.js')
 const dayjs = require('dayjs')
 const customParseFormat = require('dayjs/plugin/customParseFormat')
 
+dayjs.extend(customParseFormat)
+
 process.env.TZ = 'Europe/Stockholm'
 
 const client = new Discord.Client()
