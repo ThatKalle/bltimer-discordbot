@@ -26,5 +26,6 @@ Discord permissions needed: [3072](https://discordapi.com/permissions.html#3072)
 
 ## Built With
 
-* [Discord.js](https://discord.js.org/#/) - The framework used
+* [Discord.js](https://discord.js.org/#/)
+* [day.js](https://day.js.org/)
 * [Heroku](https://www.heroku.com/)
