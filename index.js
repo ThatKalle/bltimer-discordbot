@@ -4,6 +4,7 @@ const dayjs = require('dayjs')
 process.env.TZ = 'Europe/Stockholm'
 
 const client = new Discord.Client()
+const timestamp = false
  
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`)
