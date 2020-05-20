@@ -10,32 +10,24 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`)
 })
  
-const addTime = (date, minutes) => {
-  return new Date(date.getTime() + minutes * 60000)
-}
- 
 client.on('message', msg => {
   if (msg.content.includes('!lotus')) {
-    //const command = msg.content.toLowerCase().replace('!lotus', '').split(' ')[0]
-    const args = msg.content.slice(1).split(/ +/);
-	   const command = args.shift().toLowerCase();
-    const regex = new RegExp("^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$")
-    
+    const command = msg.content.toLowerCase().replace('!lotus', '').split(' ')[0]
+    const regex = new RegExp('^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$')
+ 
+    if (regex.test(command)) {
+      const timestamp = true
+    }
+
     if (!command.length) {
       const now = dayjs().format('HH:mm')
       const next = dayjs().add(45, 'minute').format('HH:mm')
-        
-      const output = `TAKEN: ${now}\nNEXT: ${next}`
     
-      msg.channel.send(output)
-    } else {
-      if (regex.test(command)) {
-        const timestamp = true
-      }
+      msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}`)
     }
+
     if (timestamp) {
-      const output = `timestamp: ${command}`
-      msg.channel.send(output)
+      msg.channel.send(`timestamp: ${command}`)
     }
   }
 })
