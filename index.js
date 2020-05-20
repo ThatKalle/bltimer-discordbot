@@ -18,27 +18,6 @@ const dateAdd = (date, interval, units) => {
   }
  
   switch (String(interval).toLowerCase()) {
-    case 'year':
-        ret.setFullYear(ret.getFullYear() + units)
-        checkRollover()
-        break;
-    case 'quarter':
-        ret.setMonth(ret.getMonth() + 3 * units)
-        checkRollover()
-        break;
-    case 'month':
-        ret.setMonth(ret.getMonth() + units)
-        checkRollover()
-        break;
-    case 'week':
-        ret.setDate(ret.getDate() + 7 * units)
-        break;
-    case 'day':
-        ret.setDate(ret.getDate() + units)
-        break;
-    case 'hour':
-        ret.setTime(ret.getTime() + units * 3600000)
-        break;
     case 'minute':
         ret.setTime(ret.getTime() + units * 60000)
         break;
