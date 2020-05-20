@@ -15,7 +15,7 @@ const addTime = (date, minutes) => {
  
 client.on('message', msg => {
   if (msg.content.includes('!lotus')) {
-    const command = msg.content.toLowerCase().replace('!command', '').split(' ')[0]
+    const command = msg.content.toLowerCase().replace('!lotus', '').split(' ')[0]
     const regex = new RegExp("^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$")
     if (regex.test(command)) {
       const timestamp = true
@@ -27,8 +27,9 @@ client.on('message', msg => {
       const output = `TAKEN: ${now}\nNEXT: ${next}`
     
       message.channel.send(output)
-    } else if (timestamp) {
-      const output = `timestamp: ${timestamp}`
+    }
+    if (timestamp) {
+      const output = `timestamp: ${command}`
       message.channel.send(output)
     }
   }
