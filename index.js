@@ -4,7 +4,6 @@ const dayjs = require('dayjs')
 process.env.TZ = 'Europe/Stockholm'
 
 const client = new Discord.Client()
-const prefix = "!"
  
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`)
@@ -14,25 +13,26 @@ const addTime = (date, minutes) => {
   return new Date(date.getTime() + minutes * 60000)
 }
  
-client.on('message', message => {
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).split(/ +/)
-  const command = args.shift().toLowerCase()
-  if (command === `${prefix}lotus`) {
-    if (!args.length) {
+client.on('message', msg => {
+  if (msg.content.includes('!lotus')) {
+    const command = msg.content.toLowerCase().replace('!command', '').split(' ')[0]
+    const regex = new RegExp("^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$")
+    if (regex.test(command)) {
+      const timestamp = true
+    }
+    if (!command.length) {
       const now = dayjs().format('HH:mm')
       const next = dayjs().add(45, 'minute').format('HH:mm')
-      
+        
       const output = `TAKEN: ${now}\nNEXT: ${next}`
-      
-    } else if (args[0]) {
-      const regex = new RegExp("^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$")
-      if (regex.test(args[0])) {
-        const output = `TEST: args[0]`
-      }
+    
+      message.channel.send(output)
+    } else if (timestamp) {
+      const output = `timestamp: ${timestamp}`
+      message.channel.send(output)
     }
-  message.channel.send(output)
   }
 })
+
  
 client.login(process.env.token)
