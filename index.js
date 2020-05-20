@@ -9,17 +9,27 @@ const timestamp = false
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`)
 })
-
+ 
 client.on('message', msg => {
-  if (msg.content === `!lotus`) {
-    const now = dayjs().format('HH:mm')
-    const then = dayjs().add(45, 'minute').format('HH:mm')
+  if (msg.content.includes('!lotus')) {
+    const command = msg.content.toLowerCase().replace('!lotus', '').split(' ')[0]
+    const regex = new RegExp('^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$')
+ 
+    if (regex.test(command)) {
+      const timestamp = true
+    }
 
-    const output = `TAKEN: ${now}\nNEXT: ${then}`
+    if (!command.length) {
+      const now = dayjs().format('HH:mm')
+      const next = dayjs().add(45, 'minute').format('HH:mm')
+    
+      msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}`)
+    }
 
-    msg.channel.send(output)
+    if (timestamp) {
+      msg.channel.send(`timestamp: ${command}`)
+    }
   }
 })
 
- 
 client.login(process.env.token)
