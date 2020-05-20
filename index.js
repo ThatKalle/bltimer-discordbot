@@ -32,9 +32,7 @@ client.on('message', msg => {
       const next = dayjs(nowobj).add(45, 'minute').format('HH:mm')
     
       msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}`)
-    }
-   
-    if (typeof command === 'string') {
+    } else if (typeof command === 'string') {
       msg.reply(`Invalid input`)
     }
   }
