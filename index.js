@@ -38,5 +38,3 @@ client.on('message', msg => {
 });
 
 client.login(process.env.token);
-
-msg(output);
