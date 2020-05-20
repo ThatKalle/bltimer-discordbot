@@ -28,8 +28,12 @@ client.on('message', msg => {
   if (msg.content === 'blacklotus') {
     var taken = new Date();
     var next = dateAdd(taken, 'minute', 45);
+    var takenHours = String(taken.getHours()).padStart(2, "0");
+    var takenMinutes = String(taken.getMinutes()).padStart(2, "0");
+    var nextHours = String(next.getHours()).padStart(2, "0");
+    var nextMinutes = String(next.Minutes()).padStart(2, "0");
     
-    var output = `TAKEN: ${ taken.getHours().padStart(2, "0") }:${ taken.getMinutes().padStart(2, "0") }\nNEXT: ${ next.getHours().padStart(2, "0") }:${ next.getMinutes().padStart(2, "0") }`;
+    var output = `TAKEN: ${ takenHours }:${ takenMinutes }\nNEXT: ${ nextHours }:${ nextMinutes }`;
     
     msg.channel.send(output);
   }
