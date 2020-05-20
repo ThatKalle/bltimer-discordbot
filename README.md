@@ -10,6 +10,16 @@ Quick and dirty [Black Lotus](https://classic.wowhead.com/item=13468/black-lotus
 
 ![preview](https://github.com/ThatKalle/bltimer-discordbot/blob/master/preview/preview.png?raw=true)
 
+## Usage
+
+```
+// Get lotus timer from Now picked time
+!lotus
+
+// Get lotus timer from [HH:mm] picked time
+!lotus [HH:mm]
+```
+
 ## Getting Started
 
 You'll need to build an application using the [Discord Developer Portal](https://discord.com/developers)<br>
