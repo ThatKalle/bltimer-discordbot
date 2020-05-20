@@ -48,3 +48,4 @@ client.on('message', msg => {
 })
  
 client.login(process.env.token)
+client.user.setActivity(`"blacklotus" in chat to generate timer`); 
