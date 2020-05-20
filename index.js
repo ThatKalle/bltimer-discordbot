@@ -26,11 +26,11 @@ client.on('message', msg => {
         
       const output = `TAKEN: ${now}\nNEXT: ${next}`
     
-      message.channel.send(output)
+      msg.channel.send(output)
     }
     if (timestamp) {
       const output = `timestamp: ${command}`
-      message.channel.send(output)
+      msg.channel.send(output)
     }
   }
 })
