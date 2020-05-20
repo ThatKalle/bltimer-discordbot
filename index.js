@@ -1,5 +1,5 @@
 process.env.TZ = 'Europe/Stockholm'
-const prefix = '!'
+const prefix = "!"
 const Discord = require('discord.js')
 const dayjs = require('dayjs')
 const client = new Discord.Client()
@@ -13,10 +13,10 @@ const addTime = (date, minutes) => {
 }
  
 client.on('message', message => {
-  if (!message.content.startsWith(prefix) || message.author.bot) return
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
   const args = message.content.slice(prefix.length).split(/ +/)
   const command = args.shift().toLowerCase()
-  if (message.content === '${prefix}lotus') {
+  if (command === '${prefix}lotus') {
     if (!args.length) {
       const now = dayjs().format('HH:mm')
       const next = dayjs().add(45, 'minute').format('HH:mm')
