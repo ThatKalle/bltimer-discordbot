@@ -9,7 +9,7 @@ client.on('ready', () => {
 const dateAdd = (date, interval, units) => {
   if (!(date instanceof Date)) return undefined
  
-  let ret = new Date(date) // don't change original date
+  let ret = new Date(date)
  
   const checkRollover = () => {
     if (ret.getDate() !== date.getDate()) {
