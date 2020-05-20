@@ -14,23 +14,20 @@ client.on('message', msg => {
   console.log(`msg.content:`)
   console.log(msg.content)
   if (msg.content.includes('!lotus')) {
+    if (!msg.content.startsWith("!") || msg.author.bot) return;
     const command = msg.content.toLowerCase().replace('!lotus', '').split(' ')[1]
     console.log(`command:`)
     console.log(command)
     const regex = new RegExp('^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$')
- 
-    if (regex.test(command)) {
-      const timestamp = true
-    }
 
-    if (!command.length) {
+    if (typeof command === 'undefined') {
       const now = dayjs().format('HH:mm')
       const next = dayjs().add(45, 'minute').format('HH:mm')
     
       msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}`)
     }
 
-    if (timestamp === true) {
+    if (regex.test(command)) {
       msg.channel.send(`Timestamp: ${command}`)
     }
   }
