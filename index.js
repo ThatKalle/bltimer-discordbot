@@ -16,7 +16,7 @@ client.on('message', msg => {
     const now = dayjs().format('HH:mm')
     const next = dayjs().add(45, 'minute').format('HH:mm')
 
-    const output = `Taken: ${now}, Next: ${next}`
+    const output = `TAKEN: ${now}\nNEXT: ${next}`
    
     msg.channel.send(output)
   }
