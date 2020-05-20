@@ -14,7 +14,7 @@ client.on('message', msg => {
   console.log(`msg.content:`)
   console.log(msg.content)
   if (msg.content.includes('!lotus')) {
-    const command = msg.content.toLowerCase().replace('!lotus', '').split(' ')[0]
+    const command = msg.content.toLowerCase().replace('!lotus', '').split(' ')[1]
     console.log(`command:`)
     console.log(command)
     const regex = new RegExp('^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$')
