@@ -15,10 +15,14 @@ const addTime = (date, minutes) => {
 }
  
 client.on('message', msg => {
+	console.log(msg)
+	console.log(msg.content)
   if (msg.content.includes('!lotus')) {
     //const command = msg.content.toLowerCase().replace('!lotus', '').split(' ')[0]
     const args = msg.content.slice(1).split(/ +/);
-	   const command = args.shift().toLowerCase();
+	  console.log(args)
+    const command = args.shift().toLowerCase();
+	  console.log(command)
     const regex = new RegExp("^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$")
     
     if (!command.length) {
