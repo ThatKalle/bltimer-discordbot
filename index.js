@@ -28,7 +28,7 @@ client.on('message', msg => {
     }
 
     if (regex.test(command)) {
-      const now = dayjs(command).format('HH:mm')
+      const now = dayjs(command, 'HH:mm')
       const next = dayjs(now).add(45, 'minute').format('HH:mm')
     
       msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}`)
