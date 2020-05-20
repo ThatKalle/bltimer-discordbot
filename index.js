@@ -1,5 +1,5 @@
 process.env.TZ = 'Europe/Stockholm'
-cont prefix = '!'
+const prefix = '!'
 const Discord = require('discord.js')
 const dayjs = require('dayjs')
 const client = new Discord.Client()
