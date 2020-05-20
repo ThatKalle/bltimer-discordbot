@@ -61,7 +61,7 @@ client.on('message', msg => {
     const nextHours = String(next.getHours()).padStart(2, '0')
     const nextMinutes = String(next.getMinutes()).padStart(2, '0')
    
-    const output = `TAKEN: ${takenHours }:${takenMinutes}\nNEXT: ${nextHours}:${nextMinutes}`
+    const output = `TAKEN: ${takenHours}:${takenMinutes}\nNEXT: ${nextHours}:${nextMinutes}`
    
     msg.channel.send(output)
   }
