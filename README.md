@@ -8,6 +8,8 @@
 
 Quick and dirty [Black Lotus](https://classic.wowhead.com/item=13468/black-lotus) timer bot for [Discord](https://discord.com).
 
+![preview](https://github.com/ThatKalle/bltimer-discordbot/blob/master/preview/preview.png?raw=true)
+
 ## Getting Started
 
 You'll need to build an application using the [Discord Developer Portal](https://discord.com/developers)<br>
