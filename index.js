@@ -13,8 +13,8 @@ const addTime = (date, minutes) => {
  
 client.on('message', msg => {
   if (msg.content === 'blacklotus') {
-    const now = new Date()
-    const next = addTime(now, 45)
+    const now = dayjs().format('HH:mm')
+    const next = dayjs().add(45, 'minute').format('HH:mm')
 
     const output = `Taken: ${now}, Next: ${next}`
    
