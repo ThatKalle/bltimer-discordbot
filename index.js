@@ -21,5 +21,15 @@ client.on('message', msg => {
     msg.channel.send(output)
   }
 })
+
+
+client.on('message', msg => {
+  if (msg.content.includes('!lotus')) {
+    const command = msg.content.toLowerCase().replace('!lotus', '').split(' ')[0]
+
+    msg.channel.send(command)
+  }
+})
+
  
 client.login(process.env.token)
