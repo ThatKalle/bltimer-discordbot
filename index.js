@@ -26,10 +26,10 @@ function dateAdd(date, interval, units) {
 
 client.on('message', msg => {
   if (msg.content === 'blacklotus') {
-    var now = new Date();
-    var time = dateAdd(new Date(), 'minute', 45);
+    var taken = new Date();
+    var next = dateAdd(taken, 'minute', 45);
     
-    var output = 'TAKEN: ${ now.getHours() }:${ time.getMinutes() }\nNEXT: ${ time.getHours() }:${ time.getMinutes() }';
+    var output = 'TAKEN: ${ taken.getHours() }:${ taken.getMinutes() }\nNEXT: ${ next.getHours() }:${ next.getMinutes() }';
     
     msg.channel.send(output);
   }
