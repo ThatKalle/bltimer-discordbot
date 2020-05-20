@@ -30,7 +30,7 @@ client.on('message', msg => {
       msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}`)
     }
 
-    if (timestamp = true) {
+    if (timestamp === true) {
       msg.channel.send(`Timestamp: ${command}`)
     }
   }
