@@ -29,7 +29,7 @@ client.on('message', msg => {
     var taken = new Date();
     var next = dateAdd(taken, 'minute', 45);
     
-    var output = `TAKEN: ${ taken.getHours() }:${ taken.getMinutes().padStart(2, "0") }\nNEXT: ${ next.getHours() }:${ next.getMinutes().padStart(2, "0") }`;
+    var output = `TAKEN: ${ taken.getHours().padStart(2, "0") }:${ taken.getMinutes().padStart(2, "0") }\nNEXT: ${ next.getHours().padStart(2, "0") }:${ next.getMinutes().padStart(2, "0") }`;
     
     msg.channel.send(output);
   }
