@@ -30,7 +30,7 @@ client.on('message', msg => {
       const nowobj = dayjs(command, 'HH:mm')
       const now = dayjs(nowobj).format('HH:mm')
       const nextobj = dayjs(nowobj).add(45, 'minute')
-      const next = dayjs(nowobj).format('HH:mm')
+      const next = dayjs(nextobj).format('HH:mm')
       const timerobj = dayjs(nextobj).add(30, 'minute')
       const timer = dayjs(timerobj).format('HH:mm')
     
