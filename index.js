@@ -28,7 +28,7 @@ client.on('message', msg => {
       const timer = dayjs(timerobj).format('HH:mm')
     
       msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}\nNext timer end: ${timer}`).then(msg => {
-        const reacts = ['1⃣', '2⃣', '3⃣', '4⃣', '5⃣', '6⃣', '7⃣', '8⃣', '9⃣', '🔟']
+        const reacts = ['1%E2%83%A3', '2%E2%83%A3', '3%E2%83%A3', '4%E2%83%A3', '5%E2%83%A3', '6%E2%83%A3', '7%E2%83%A3', '8%E2%83%A3', '9%E2%83%A3', '1%E2%83%A3']
         reacts.forEach(react => msg.react('react'))
       }).catch(error => { throw error})
     }
@@ -42,7 +42,7 @@ client.on('message', msg => {
       const timer = dayjs(timerobj).format('HH:mm')
       
       msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}\nNext timer end: ${timer}`).then(msg => {
-        const reacts = ['1⃣', '2⃣', '3⃣', '4⃣', '5⃣', '6⃣', '7⃣', '8⃣', '9⃣', '🔟']
+        const reacts = ['1%E2%83%A3', '2%E2%83%A3', '3%E2%83%A3', '4%E2%83%A3', '5%E2%83%A3', '6%E2%83%A3', '7%E2%83%A3', '8%E2%83%A3', '9%E2%83%A3', '1%E2%83%A3']
         reacts.forEach(react => msg.react('react'))
       }).catch(error => { throw error})
     } else if (typeof command === 'string') {
