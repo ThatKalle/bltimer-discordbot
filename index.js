@@ -28,7 +28,7 @@ client.on('message', msg => {
       const timer = dayjs(timerobj).format('HH:mm')
     
       msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}\nNext timer end: ${timer}`).then(msg => {
-        const reacts = ['1⃣', '2⃣', '3⃣', '4⃣', '5⃣', '6⃣', '7⃣', '8⃣', '9⃣']
+        const reacts = ['1⃣']
         reacts.forEach(react => msg.react('react'))
       }).catch(error => { throw error})
     }
@@ -42,7 +42,7 @@ client.on('message', msg => {
       const timer = dayjs(timerobj).format('HH:mm')
       
       msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}\nNext timer end: ${timer}`).then(msg => {
-        const reacts = ['1⃣', '2⃣', '3⃣', '4⃣', '5⃣', '6⃣', '7⃣', '8⃣', '9⃣']
+        const reacts = ['1⃣', '2⃣']
         reacts.forEach(react => msg.react('react'))
       }).catch(error => { throw error})
     } else if (typeof command === 'string') {
