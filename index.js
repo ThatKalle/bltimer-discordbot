@@ -28,7 +28,7 @@ client.on('message', msg => {
       const timer = dayjs(timerobj).format('HH:mm')
     
       msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}\nNext timer end: ${timer}`).then(sentMessage => {
-        sentMessage.react(':one:,:two:,:three:,:four:,:five:,:six:,:seven:,:eight:,:nine:,:keycakp_ten:')
+        sentMessage.react(':one:,:two:,:three:,:four:,:five:,:six:,:seven:,:eight:,:nine:,:keycap_ten:')
       })
     }
 
@@ -41,7 +41,7 @@ client.on('message', msg => {
       const timer = dayjs(timerobj).format('HH:mm')
       
       msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}\nNext timer end: ${timer}`).then(sentMessage => {
-        sentMessage.react(':one:,:two:,:three:,:four:,:five:,:six:,:seven:,:eight:,:nine:,:keycakp_ten:')
+        sentMessage.react(':one:,:two:,:three:,:four:,:five:,:six:,:seven:,:eight:,:nine:,:keycap_ten:')
       })
     } else if (typeof command === 'string') {
       msg.react('❎')
