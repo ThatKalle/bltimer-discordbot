@@ -29,7 +29,7 @@ client.on('message', msg => {
     
       msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}\nNext timer end: ${timer}`).then(msg => {
         msg.react(':one:')
-      }).catch(function() {})
+      }).catch(error => { throw error})
     }
 
     if (regex.test(command)) {
@@ -42,7 +42,7 @@ client.on('message', msg => {
       
       msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}\nNext timer end: ${timer}`).then(msg => {
         msg.react(':one:')
-      }).catch(function() {})
+      }).catch(error => { throw error})
     } else if (typeof command === 'string') {
       msg.react('❎')
     }
