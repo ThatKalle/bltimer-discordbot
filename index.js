@@ -27,10 +27,7 @@ client.on('message', msg => {
       const timerobj = dayjs(nextobj).add(30, 'minute')
       const timer = dayjs(timerobj).format('HH:mm')
     
-      msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}\nNext timer end: ${timer}`).then(msg => {
-        const reacts = ['1⃣']
-        reacts.forEach(react => msg.react('react'))
-      }).catch(error => { throw error})
+      msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}\nNext timer end: ${timer}`)
     }
 
     if (regex.test(command)) {
@@ -41,10 +38,7 @@ client.on('message', msg => {
       const timerobj = dayjs(nextobj).add(30, 'minute')
       const timer = dayjs(timerobj).format('HH:mm')
       
-      msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}\nNext timer end: ${timer}`).then(msg => {
-        const reacts = ['1⃣', '2⃣']
-        reacts.forEach(react => msg.react('react'))
-      }).catch(error => { throw error})
+      msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}\nNext timer end: ${timer}`)
     } else if (typeof command === 'string') {
       msg.react('❎')
     }
