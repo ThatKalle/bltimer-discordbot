@@ -20,10 +20,15 @@ client.on('message', msg => {
     const regex = new RegExp('^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$')
 
     if (typeof command === 'undefined') {
-      const now = dayjs().format('HH:mm')
-      const next = dayjs().add(45, 'minute').format('HH:mm')
+      const nowobj = dayjs()
+      const now = dayjs(nowobj).format('HH:mm')
+      const nextobj = dayjs(nowobj).add(45, 'minute')
+      const next = dayjs(nextobj).format('HH:mm')
+      const timerobj = dayjs(nextobj).add(30, 'minute')
+      const timer = dayjs(timerobj).format('HH:mm')
     
-      msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}`)
+      msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}\nNext timer end: ${timer}`)
+      msg.react(':one:,:two:,:three:,:four:,:five:,:six:,:seven:,:eight:,:nine:,:keycakp_ten:');
     }
 
     if (regex.test(command)) {
@@ -35,6 +40,7 @@ client.on('message', msg => {
       const timer = dayjs(timerobj).format('HH:mm')
     
       msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}\nNext timer end: ${timer}`)
+      msg.react(':one:,:two:,:three:,:four:,:five:,:six:,:seven:,:eight:,:nine:,:keycakp_ten:');
     } else if (typeof command === 'string') {
       msg.react('❎');
     }
