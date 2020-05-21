@@ -27,8 +27,9 @@ client.on('message', msg => {
       const timerobj = dayjs(nextobj).add(30, 'minute')
       const timer = dayjs(timerobj).format('HH:mm')
     
-      msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}\nNext timer end: ${timer}`)
-      msg.react(':one:,:two:,:three:,:four:,:five:,:six:,:seven:,:eight:,:nine:,:keycakp_ten:');
+      msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}\nNext timer end: ${timer}`).then(sentMessage => {
+        sentMessage.react(':one:,:two:,:three:,:four:,:five:,:six:,:seven:,:eight:,:nine:,:keycakp_ten:')
+      })
     }
 
     if (regex.test(command)) {
@@ -38,11 +39,12 @@ client.on('message', msg => {
       const next = dayjs(nextobj).format('HH:mm')
       const timerobj = dayjs(nextobj).add(30, 'minute')
       const timer = dayjs(timerobj).format('HH:mm')
-    
-      msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}\nNext timer end: ${timer}`)
-      msg.react(':one:,:two:,:three:,:four:,:five:,:six:,:seven:,:eight:,:nine:,:keycakp_ten:');
+      
+      msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}\nNext timer end: ${timer}`).then(sentMessage => {
+        sentMessage.react(':one:,:two:,:three:,:four:,:five:,:six:,:seven:,:eight:,:nine:,:keycakp_ten:')
+      })
     } else if (typeof command === 'string') {
-      msg.react('❎');
+      msg.react('❎')
     }
   }
 })
