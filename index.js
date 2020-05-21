@@ -29,9 +29,12 @@ client.on('message', msg => {
     if (regex.test(command)) {
       const nowobj = dayjs(command, 'HH:mm')
       const now = dayjs(nowobj).format('HH:mm')
-      const next = dayjs(nowobj).add(45, 'minute').format('HH:mm')
+      const nextobj = dayjs(nowobj).add(45, 'minute')
+      const next = dayjs(nowobj).format('HH:mm')
+      const timerobj = dayjs(nextobj).add(30, 'minute')
+      const timer = dayjs(timerobj).format('HH:mm')
     
-      msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}`)
+      msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}\nNext timer end: ${timer}`)
     } else if (typeof command === 'string') {
       msg.react('❎');
     }
