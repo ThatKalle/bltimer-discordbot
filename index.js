@@ -28,7 +28,7 @@ client.on('message', msg => {
       const timer = dayjs(timerobj).format('HH:mm')
     
       msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}\nNext timer end: ${timer}`).then(msg => {
-        msg.react(':one:')
+        msg.react('1⃣')
       }).catch(error => { throw error})
     }
 
@@ -41,7 +41,7 @@ client.on('message', msg => {
       const timer = dayjs(timerobj).format('HH:mm')
       
       msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}\nNext timer end: ${timer}`).then(msg => {
-        msg.react(':one:')
+        msg.react('1⃣')
       }).catch(error => { throw error})
     } else if (typeof command === 'string') {
       msg.react('❎')
