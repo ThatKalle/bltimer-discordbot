@@ -8,19 +8,19 @@ process.env.TZ = 'Europe/Stockholm'
 
 const client = new Discord.Client()
 
-function parseTimeFormat (command) {
-  var input = command
-  var input = input.replace(/[:.]/g, ":")
+function parseTimeFormat (input) {
+  var result = input
+  var result = result.replace(/[:.]/g, ":")
 
-  if (input.charAt(0) != "0") {
-    var input = "0" + input
+  if (result.charAt(0) != "0") {
+    var result = "0" + result
   }
 
-  if (input.length === 4) {
-    var input = input.slice(0,2) + ":" + input.slice(2)
+  if (result.length === 4) {
+    var result = result.slice(0,2) + ":" + result.slice(2)
   }
 
-  return input
+  return result
 }
  
 client.on('ready', () => {
