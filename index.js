@@ -7,7 +7,6 @@ dayjs.extend(customParseFormat)
 process.env.TZ = 'Europe/Stockholm'
 
 const client = new Discord.Client()
-const timestamp = false
  
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`)
@@ -17,7 +16,8 @@ client.on('message', msg => {
   if (!msg.content.startsWith('!') || msg.author.bot) {return}
   if (msg.content.includes('!lotus')) {
     const command = msg.content.toLowerCase().replace('!lotus', '').split(' ')[1]
-    const regex = new RegExp('^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$')
+    const regexa = new RegExp('^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$')
+    const regexb = new RegExp('^([0-1]?[0-9]|2[0-3])[0-5][0-9]$')
 
     if (typeof command === 'undefined') {
       const nowobj = dayjs()
@@ -27,24 +27,23 @@ client.on('message', msg => {
       const timerobj = dayjs(nextobj).add(30, 'minute')
       const timer = dayjs(timerobj).format('HH:mm')
     
-      msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}\nNext timer end: ${timer}`).then(msg => {
-        const reacts = ['1⃣']
-        reacts.forEach(react => msg.react('react'))
-      }).catch(error => { throw error})
+      msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}\nNext timer end: ${timer}`)
     }
 
-    if (regex.test(command)) {
-      const nowobj = dayjs(command, 'HH:mm')
+    if (regexa.test(command) || regexb.test(command)) {
+      var input = command
+      if (input.length === 4) {
+        var input = command.slice(0,2) + ":" + command.slice(2)
+      }
+      
+      const nowobj = dayjs(input, 'HH:mm')
       const now = dayjs(nowobj).format('HH:mm')
       const nextobj = dayjs(nowobj).add(45, 'minute')
       const next = dayjs(nextobj).format('HH:mm')
       const timerobj = dayjs(nextobj).add(30, 'minute')
       const timer = dayjs(timerobj).format('HH:mm')
       
-      msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}\nNext timer end: ${timer}`).then(msg => {
-        const reacts = ['1⃣', '2⃣']
-        reacts.forEach(react => msg.react('react'))
-      }).catch(error => { throw error})
+      msg.channel.send(`TAKEN: ${now}\nNEXT: ${next}\nNext timer end: ${timer}`)
     } else if (typeof command === 'string') {
       msg.react('❎')
     }
