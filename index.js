@@ -7,6 +7,21 @@ dayjs.extend(customParseFormat)
 process.env.TZ = 'Europe/Stockholm'
 
 const client = new Discord.Client()
+
+function parseTimeFormat (command) {
+  var input = command
+  var input = input.replace(/[:.]/g, ":")
+
+  if (input.charAt(0) != "0") {
+    var input = "0" + input
+  }
+
+  if (input.length === 4) {
+    var input = input.slice(0,2) + ":" + input.slice(2)
+  }
+
+  return input
+}
  
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`)
@@ -30,14 +45,7 @@ client.on('message', msg => {
     }
 
     if (regex.test(command)) {
-      var input = command
-      var input = input.replace(/[:.]/g, ":")
-      if (input.charAt(0) != "0") {
-        var input = "0" + input
-      }
-      if (input.length === 4) {
-        var input = input.slice(0,2) + ":" + input.slice(2)
-      }
+      var input = parseTimeFormat(command)
       
       const nowobj = dayjs(input, 'HH:mm')
       const now = dayjs(nowobj).format('HH:mm')
