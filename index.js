@@ -16,7 +16,7 @@ client.on('message', msg => {
   if (!msg.content.startsWith('!') || msg.author.bot) {return}
   if (msg.content.includes('!lotus')) {
     const command = msg.content.toLowerCase().replace('!lotus', '').split(' ')[1]
-    const regex = new RegExp('^([0-1]?[0-9]|2[0-3]):?[0-5][0-9]$')
+    const regex = new RegExp('^([0-1]?[0-9]|2[0-3])[:.]?[0-5][0-9]$')
 
     if (typeof command === 'undefined') {
       const nowobj = dayjs()
@@ -31,8 +31,12 @@ client.on('message', msg => {
 
     if (regex.test(command)) {
       var input = command
+      var input = input.replace(/[:.]/g, ":")
+      if (input.charAt(0) != "0") {
+        var input = "0" + input
+      }
       if (input.length === 4) {
-        var input = command.slice(0,2) + ":" + command.slice(2)
+        var input = input.slice(0,2) + ":" + input.slice(2)
       }
       
       const nowobj = dayjs(input, 'HH:mm')
