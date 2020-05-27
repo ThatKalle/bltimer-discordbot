@@ -35,26 +35,26 @@ client.on('message', msg => {
 
     if (typeof command === 'undefined') {
       const nowobj = dayjs()
-      const now = dayjs(nowobj).format('HH:mm')
+      //const now = dayjs(nowobj).format('HH:mm')
       const nextobj = dayjs(nowobj).add(45, 'minute')
       const next = dayjs(nextobj).format('HH:mm')
       const timerobj = dayjs(nextobj).add(30, 'minute')
       const timer = dayjs(timerobj).format('HH:mm')
     
-      msg.channel.send(`TAKEN: ${now}\n**NEXT: ${next}** end: ${timer}`)
+      msg.channel.send(`**NEXT: ${next}**\nEnd: ${timer}`)
     }
 
     if (regex.test(command)) {
       var input = parseTimeFormat(command)
       
       const nowobj = dayjs(input, 'HH:mm')
-      const now = dayjs(nowobj).format('HH:mm')
+      //const now = dayjs(nowobj).format('HH:mm')
       const nextobj = dayjs(nowobj).add(45, 'minute')
       const next = dayjs(nextobj).format('HH:mm')
       const timerobj = dayjs(nextobj).add(30, 'minute')
       const timer = dayjs(timerobj).format('HH:mm')
       
-      msg.channel.send(`TAKEN: ${now}\n**NEXT: ${next}** end: ${timer}`)
+      msg.channel.send(`**NEXT: ${next}**\nEnd: ${timer}`)
     } else if (typeof command === 'string') {
       msg.react('❎')
     }
